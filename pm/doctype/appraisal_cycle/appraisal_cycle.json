@@ -1,0 +1,114 @@
+{
+  "actions": [],
+  "autoname": "field:cycle_name",
+  "creation": "2026-02-12 12:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "cycle_name",
+    "section_dates",
+    "start_date",
+    "end_date",
+    "section_phase",
+    "phase_status",
+    "description",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "cycle_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Cycle Name",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "section_dates",
+      "fieldtype": "Section Break",
+      "label": "Period"
+    },
+    {
+      "fieldname": "start_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Start Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "end_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "End Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "section_phase",
+      "fieldtype": "Section Break",
+      "label": "Phase"
+    },
+    {
+      "default": "BSC Open",
+      "fieldname": "phase_status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Phase Status",
+      "options": "BSC Open\nAppraisal Open\nClosed",
+      "reqd": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "Appraisal Cycle",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-02-12 12:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "PM",
+  "name": "Appraisal Cycle",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "HR Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "report": 1,
+      "role": "Employee"
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

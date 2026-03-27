@@ -1,0 +1,226 @@
+{
+  "actions": [],
+  "autoname": "naming_series:",
+  "creation": "2026-02-12 12:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "naming_series",
+    "employee",
+    "employee_name",
+    "supervisor",
+    "appraisal_cycle",
+    "posting_date",
+    "status",
+    "workflow_state",
+    "employee_approved",
+    "section_goals",
+    "goal_kras",
+    "goals_kras_ui",
+    "section_total",
+    "total_weight",
+    "section_goal_progression",
+    "goal_progression",
+    "section_goal_completion",
+    "goal_completion",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "naming_series",
+      "fieldtype": "Select",
+      "label": "Series",
+      "options": "BSC-.YYYY.-",
+      "reqd": 1
+    },
+    {
+      "fieldname": "employee",
+      "fieldtype": "Link",
+      "ignore_user_permissions": 1,
+      "in_list_view": 1,
+      "label": "Employee",
+      "options": "Employee",
+      "reqd": 1
+    },
+    {
+      "fetch_from": "employee.employee_name",
+      "fieldname": "employee_name",
+      "fieldtype": "Data",
+      "label": "Employee Name",
+      "read_only": 1
+    },
+    {
+      "fetch_from": "employee.reports_to",
+      "fieldname": "supervisor",
+      "fieldtype": "Link",
+      "ignore_user_permissions": 1,
+      "label": "Supervisor",
+      "options": "Employee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "appraisal_cycle",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Appraisal Cycle",
+      "options": "Appraisal Cycle",
+      "reqd": 1
+    },
+    {
+      "default": "Today",
+      "fieldname": "posting_date",
+      "fieldtype": "Date",
+      "label": "Posting Date"
+    },
+    {
+      "allow_on_submit": 1,
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nPending Employee Approval\nRejected by Employee\nApproved",
+      "read_only": 1
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "workflow_state",
+      "fieldtype": "Link",
+      "hidden": 1,
+      "label": "Workflow State",
+      "no_copy": 1,
+      "options": "Workflow State",
+      "read_only": 1,
+      "description": "Set by Workflow when you attach a workflow to this doctype. Use Workflow State Field = workflow_state in your Workflow."
+    },
+    {
+      "default": "Pending",
+      "fieldname": "employee_approved",
+      "fieldtype": "Select",
+      "label": "Employee Approval",
+      "options": "Pending\nApproved\nRejected",
+      "depends_on": "eval:doc.status == 'Pending Employee Approval'"
+    },
+    {
+      "fieldname": "section_goals",
+      "fieldtype": "Section Break",
+      "label": "Goals & KRAs"
+    },
+    {
+      "fieldname": "goal_kras",
+      "fieldtype": "Table",
+      "label": "Goals & KRAs",
+      "options": "Balance Score Card KRA",
+      "hidden": 1
+    },
+    {
+      "fieldname": "goals_kras_ui",
+      "fieldtype": "HTML",
+      "label": "Goals & KRAs"
+    },
+    {
+      "fieldname": "section_total",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "total_weight",
+      "fieldtype": "Float",
+      "label": "Total Weight",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_goal_progression",
+      "fieldtype": "Section Break",
+      "label": "Goal Progression"
+    },
+    {
+      "description": "For goal progression only",
+      "fieldname": "goal_progression",
+      "fieldtype": "Percent",
+      "label": "Goal Progression",
+      "read_only": 1
+    },
+    {
+      "depends_on": "eval:doc.status == 'Approved'",
+      "fieldname": "section_goal_completion",
+      "fieldtype": "Section Break",
+      "label": "Goal completion (%)"
+    },
+    {
+      "fieldname": "goal_completion",
+      "fieldtype": "Table",
+      "label": "Goal completion (%)",
+      "options": "Balance Score Card Goal Completion",
+      "read_only": 1
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "Balance Score Card",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2026-02-12 12:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "PM",
+  "name": "Balance Score Card",
+  "naming_rule": "By \"Naming Series\" field",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "HR Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Supervisor",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Employee",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1,
+  "description": "To submit without email errors, set up a default outgoing Email Account: Tools > Email Account, enable Outgoing and set as Default Outgoing."
+}

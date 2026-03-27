@@ -1,0 +1,49 @@
+{
+  "actions": [],
+  "autoname": "hash",
+  "creation": "2026-02-12 12:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "goal_name",
+    "completion_percent",
+    "goal_progression"
+  ],
+  "fields": [
+    {
+      "fieldname": "goal_name",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Goal Name",
+      "read_only": 1
+    },
+    {
+      "fieldname": "completion_percent",
+      "fieldtype": "Float",
+      "label": "Completion (%)",
+      "precision": 2,
+      "read_only": 1,
+      "hidden": 1
+    },
+    {
+      "fieldname": "goal_progression",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Goal progression (%)",
+      "precision": 2,
+      "read_only": 1
+    }
+  ],
+  "istable": 1,
+  "links": [],
+  "modified": "2026-02-12 12:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "PM",
+  "name": "Balance Score Card Goal Completion",
+  "naming_rule": "Random",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": []
+}

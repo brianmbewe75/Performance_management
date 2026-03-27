@@ -140,12 +140,7 @@ after_install = "performance_management.install.after_install"
 
 doc_events = {
 	"Appraisal": {
-		"on_submit": "performance_management.overrides.appraisal_validate_bsc",
-	},
-	"Employee": {
-		# Keep the Supervisor Frappe-role in sync with the org hierarchy so workflow
-		# action buttons appear automatically for users who have direct reports.
-		"on_update": "performance_management.overrides.sync_supervisor_role",
+		"on_submit": "performance_management.performance_management.overrides.appraisal_validate_bsc",
 	},
 }
 
@@ -183,7 +178,7 @@ doc_events = {
 # }
 #
 # each overriding function accepts a `data` argument;
-# generated from the default implementation of the doctype dashboard,
+# generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
 # 	"Task": "performance_management.task.get_dashboard_data"

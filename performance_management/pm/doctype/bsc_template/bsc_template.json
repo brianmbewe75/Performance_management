@@ -1,0 +1,107 @@
+{
+  "actions": [],
+  "autoname": "field:title",
+  "creation": "2026-02-12 12:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "title",
+    "description",
+    "section_perspectives",
+    "financial_weight",
+    "customer_weight",
+    "internal_process_weight",
+    "learning_growth_weight",
+    "amended_from"
+  ],
+  "fields": [
+    {
+      "fieldname": "title",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "label": "Title",
+      "reqd": 1,
+      "unique": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "section_perspectives",
+      "fieldtype": "Section Break",
+      "label": "Perspective Weights (optional)"
+    },
+    {
+      "description": "Weight % for Financial perspective (optional; used to pre-fill BSC)",
+      "fieldname": "financial_weight",
+      "fieldtype": "Percent",
+      "label": "Financial Weight"
+    },
+    {
+      "fieldname": "customer_weight",
+      "fieldtype": "Percent",
+      "label": "Customer Weight"
+    },
+    {
+      "fieldname": "internal_process_weight",
+      "fieldtype": "Percent",
+      "label": "Internal Process Weight"
+    },
+    {
+      "fieldname": "learning_growth_weight",
+      "fieldtype": "Percent",
+      "label": "Learning & Growth Weight"
+    },
+    {
+      "fieldname": "amended_from",
+      "fieldtype": "Link",
+      "label": "Amended From",
+      "no_copy": 1,
+      "options": "BSC Template",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-02-12 12:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "PM",
+  "name": "BSC Template",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "HR Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "read": 1,
+      "report": 1,
+      "role": "Employee"
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}
