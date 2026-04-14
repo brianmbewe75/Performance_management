@@ -7,7 +7,8 @@ from frappe import _
 
 def appraisal_validate_bsc(doc, method=None):
 	"""On Appraisal submit: sync BSC goal_completion and goal_progression from appraisal scores.
-	Uses average of supervisor score and employee self-score per KRA row."""
+	Uses average of supervisor score and employee self-score per KRA row.
+	Also blends subordinate contributions if configured and triggers cascading supervisor update."""
 	if not getattr(doc, "balance_score_card", None):
 		return
 	from performance_management.pm.doctype.balance_score_card.balance_score_card import (

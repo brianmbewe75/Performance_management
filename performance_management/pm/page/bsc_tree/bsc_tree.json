@@ -1,0 +1,14 @@
+{
+  "creation": "2026-03-27 00:00:00",
+  "doctype": "Page",
+  "module": "PM",
+  "name": "bsc-tree",
+  "page_name": "bsc-tree",
+  "title": "BSC Performance Tree",
+  "roles": [
+    {"role": "HR Manager"},
+    {"role": "System Manager"},
+    {"role": "Supervisor"},
+    {"role": "Employee"}
+  ]
+}

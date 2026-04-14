@@ -10,6 +10,7 @@
     "employee_name",
     "supervisor",
     "appraisal_cycle",
+    "parent_bsc",
     "posting_date",
     "status",
     "workflow_state",
@@ -17,8 +18,12 @@
     "section_goals",
     "goal_kras",
     "goals_kras_ui",
+    "section_kpis",
+    "kpi_rows",
+    "kpis_ui",
     "section_total",
     "total_weight",
+    "subordinate_contribution_pct",
     "section_goal_progression",
     "goal_progression",
     "section_goal_completion",
@@ -67,6 +72,13 @@
       "reqd": 1
     },
     {
+      "fieldname": "parent_bsc",
+      "fieldtype": "Link",
+      "label": "Supervisor BSC",
+      "options": "Balance Score Card",
+      "read_only": 1
+    },
+    {
       "default": "Today",
       "fieldname": "posting_date",
       "fieldtype": "Date",
@@ -79,7 +91,7 @@
       "fieldtype": "Select",
       "in_list_view": 1,
       "label": "Status",
-      "options": "Draft\nPending Employee Approval\nRejected by Employee\nApproved",
+      "options": "Draft\nPending Supervisor Approval\nApproved\nRejected",
       "read_only": 1
     },
     {
@@ -99,7 +111,7 @@
       "fieldtype": "Select",
       "label": "Employee Approval",
       "options": "Pending\nApproved\nRejected",
-      "depends_on": "eval:doc.status == 'Pending Employee Approval'"
+      "hidden": 1
     },
     {
       "fieldname": "section_goals",
@@ -119,6 +131,23 @@
       "label": "Goals & KRAs"
     },
     {
+      "fieldname": "section_kpis",
+      "fieldtype": "Section Break",
+      "label": "KPIs (Key Performance Indicators)"
+    },
+    {
+      "fieldname": "kpi_rows",
+      "fieldtype": "Table",
+      "label": "KPIs",
+      "options": "Balance Score Card KPI",
+      "hidden": 1
+    },
+    {
+      "fieldname": "kpis_ui",
+      "fieldtype": "HTML",
+      "label": "KPIs"
+    },
+    {
       "fieldname": "section_total",
       "fieldtype": "Section Break"
     },
@@ -127,6 +156,13 @@
       "fieldtype": "Float",
       "label": "Total Weight",
       "read_only": 1
+    },
+    {
+      "default": "0",
+      "description": "% of this BSC's appraisal score that comes from subordinates' linked KRA performance",
+      "fieldname": "subordinate_contribution_pct",
+      "fieldtype": "Float",
+      "label": "Subordinate Contribution %"
     },
     {
       "fieldname": "section_goal_progression",
@@ -165,7 +201,7 @@
   "index_web_pages_for_search": 1,
   "is_submittable": 1,
   "links": [],
-  "modified": "2026-02-12 12:00:00.000000",
+  "modified": "2026-03-27 00:00:00.000000",
   "modified_by": "Administrator",
   "module": "PM",
   "name": "Balance Score Card",
@@ -196,6 +232,7 @@
       "write": 1
     },
     {
+      "create": 1,
       "email": 1,
       "print": 1,
       "read": 1,
